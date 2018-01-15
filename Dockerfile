@@ -146,6 +146,6 @@ RUN set -e \
 		exit 1; \
 	fi
 #add war file
-ADD target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
+ADD target/SampleJerseyApp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/SampleJerseyApp-1.0-SNAPSHOT.war
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
