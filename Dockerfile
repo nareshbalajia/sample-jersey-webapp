@@ -1,4 +1,4 @@
-FROM openjdk:7-jre
+FROM openjdk:8-jre
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
@@ -55,9 +55,9 @@ RUN set -ex; \
 		gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
 	done
 
-ENV TOMCAT_MAJOR 7
-ENV TOMCAT_VERSION 7.0.82
-ENV TOMCAT_SHA1 4681bfbc86bb4da76a7aabbb3c545475eb9a8075
+ENV TOMCAT_MAJOR 8
+ENV TOMCAT_VERSION 8.0.48
+ENV TOMCAT_SHA1 d2446c127c9b11f88def11e542af98998071d91d
 
 ENV TOMCAT_TGZ_URLS \
 # https://issues.apache.org/jira/browse/INFRA-8753?focusedCommentId=14735394#comment-14735394
@@ -145,7 +145,6 @@ RUN set -e \
 		echo >&2 "$nativeLines"; \
 		exit 1; \
 	fi
-#add war file
 ADD target/SampleJerseyApp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/SampleJerseyApp-1.0-SNAPSHOT.war
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
