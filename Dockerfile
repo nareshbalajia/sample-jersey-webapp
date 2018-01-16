@@ -146,5 +146,9 @@ RUN set -e \
 		exit 1; \
 	fi
 ADD target/SampleJerseyApp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/SampleJerseyApp-1.0-SNAPSHOT.war
+#change tomcat-users.xml
+ADD tomcat-users.xml /usr/tomcat-users.xml
+RUN rm -f /usr/local/tomcat/conf/tomcat-users.xml
+RUN cp /usr/tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
