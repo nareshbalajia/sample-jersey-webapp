@@ -19,6 +19,9 @@ public class UserAccount {
     @JsonProperty
     private String password;
 
+    @JsonProperty
+    private int age;
+
 
     public String getFirstName() {
         return first_name;
@@ -38,5 +41,9 @@ public class UserAccount {
 
     public String getPassword() {
         return password;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
