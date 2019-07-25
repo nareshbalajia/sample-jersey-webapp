@@ -1,0 +1,22 @@
+{
+  "id": "sample-app",
+  "container": {
+    "type": "DOCKER",
+    "portMappings": [
+      { "hostPort": 0, "containerPort": 8080, "servicePort": 10004, "protocol": "tcp"}
+    ],
+    "docker": {
+      "image": "nareshbalajia/java_app:dev2"
+    }
+  },
+  "instances": 1,
+  "cpus": 1,
+  "mem": 512,
+  "networks": [ { "mode": "container/bridge" } ],
+  "labels":{
+    "HAPROXY_DEPLOYMENT_GROUP":"sample-java-app",
+    "HAPROXY_DEPLOYMENT_ALT_PORT":"10005",
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST": "dcos-southeastasia-slavelbdns.southeastasia.cloudapp.azure.com"
+  }
+}
